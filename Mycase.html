@@ -140,137 +140,65 @@
             </nav>
         </div>
     </aside>
+
     <!-- Main Content -->
     <main class="flex-1 ml-64 p-6 overflow-auto">
         <div class="max-w-5xl mx-auto bg-white p-6 rounded shadow space-y-6">
-            <h1 class="text-2xl font-bold text-blue-800 mb-6">สร้างเคส</h1>
-
-            <form class="bg-white p-6 rounded-lg shadow space-y-6">
-
-                <!-- ข้อมูลทั่วไป -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">* เลขที่เคส</label>
-                        <input type="text" placeholder="เช่น CS20250624-001" class="w-full border px-3 py-2 rounded" />
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">* ลูกค้า</label>
-                        <div class="flex">
-                            <input type="text" class="flex-1 border px-3 py-2 rounded-l" placeholder="ค้นหาลูกค้า">
-                            <button type="button" class="bg-gray-200 px-4 rounded-r hover:bg-gray-300"></button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">ผู้ติดต่อ</label>
-                        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="ชื่อผู้ติดต่อ" />
-                    </div>
+            <!-- Form -->
+            <form class="bg-white p-6 rounded shadow space-y-6 max-w-5xl mx-auto">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-2xl font-bold">รายการเคส</h1>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"> เพิ่มเคสใหม่</button>
                 </div>
 
-                <!-- หัวข้อ / รายละเอียด -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">หัวข้อ</label>
-                        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="เรื่องที่แจ้ง" />
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">รหัสบริการ</label>
-                        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="รหัสบริการ (ถ้ามี)" />
-                    </div>
+                <!-- Filter & Search -->
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <input type="text" placeholder="ค้นหา..."
+                        class="border border-gray-300 rounded-lg px-3 py-2 w-60" />
+                    <select class="border border-gray-300 rounded-lg px-3 py-2">
+                        <option>สถานะทั้งหมด</option>
+                        <option>เปิดอยู่</option>
+                        <option>ปิดแล้ว</option>
+                    </select>
+                    <input type="date" class="border border-gray-300 rounded-lg px-3 py-2" />
                 </div>
 
-                <!-- รายละเอียด -->
-                <div>
-                    <label class="block font-semibold mb-1 text-gray-700">รายละเอียด</label>
-                    <textarea rows="3" class="w-full border px-3 py-2 rounded overflow-hidden resize-none"
-                        placeholder="ละเอียดเพิ่มเติม...">
-                        </textarea>
+                <!-- Table -->
+                <div class="overflow-x-auto bg-white rounded-lg shadow">
+                    <table class="min-w-full text-sm text-left text-gray-700">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-4 py-3">วันที่รับเคส</th>
+                                <th class="px-4 py-3">เลขที่เคส</th>
+                                <th class="px-4 py-3">หัวเรื่อง</th>
+                                <th class="px-4 py-3">สถานะ</th>
+                                <th class="px-4 py-3">ลูกค้า</th>
+                                <th class="px-4 py-3">การจัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-4 py-2">25/06/2025</td>
+                                <td class="px-4 py-2 text-blue-600">CS20250625-001</td>
+                                <td class="px-4 py-2">test</td>
+                                <td class="px-4 py-2"><span
+                                        class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">เปิดอยู่</span>
+                                </td>
+                                <td class="px-4 py-2">test</td>
+                                <td class="px-4 py-2 space-x-2">
+                                    <button class="text-blue-600 hover:underline">ดู</button>
+                                    <button class="text-yellow-600 hover:underline">แก้ไข</button>
+                                    <button class="text-red-600 hover:underline">ลบ</button>
+                                </td>
+                            </tr>
+                            <!-- เพิ่มแถวอื่นๆ ได้ -->
+                        </tbody>
+                    </table>
                 </div>
-
-
-                <!-- วันที่ -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">วันที่รับเคส</label>
-                        <input type="date" class="w-full border px-3 py-2 rounded" value="2025-06-24" />
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">เวลา</label>
-                        <input class="w-full border px-3 py-2 rounded" value="00:00" />
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">วันที่กำหนดเสร็จ</label>
-                        <input type="date" class="w-full border px-3 py-2 rounded" />
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">เวลา</label>
-                        <input class="w-full border px-3 py-2 rounded" value="00:00" />
-                    </div>
-                </div>
-
-                <!-- สถานะ + ผู้รับผิดชอบ -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">หมวดหมู่</label>
-                        <select class="w-full border px-3 py-2 rounded">
-                            <option>เคส</option>
-                            <option>ข้อเสนอ</option>
-                            <option>คำร้อง</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">ผู้รับผิดชอบ</label>
-                        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="เช่น MEM001" />
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-1 text-gray-700">หน่วยงาน</label>
-                        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="เช่น IT-SUPPORT" />
-                    </div>
-                </div>
-
-                <!-- การแจ้งเตือน -->
-                <div class="border-t pt-6">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">ข้อมูลการแจ้งเตือน</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" id="alertMyCRM" class="accent-blue-600" />
-                            <label for="alertMyCRM">ส่งอีเมล</label>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" id="alertEmail" class="accent-blue-600" />
-                            <label for="alertEmail">ส่งอีเมล</label>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                        <div>
-                            <label class="block font-semibold mb-1 text-gray-700">แจ้งเตือนหลัง</label>
-                            <div class="flex gap-2">
-                                <input type="number" class="w-20 border px-3 py-2 rounded" value="1" />
-                                <span class="text-gray-700 mt-2">วัน</span>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-1 text-gray-700">เวลา</label>
-                            <input type="time" class="w-full border px-3 py-2 rounded" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ปุ่มบันทึก -->
-                <div class="text-center pt-4">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow">
-                        Save
-                    </button>
-                    <button type="submit" class="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded shadow">
-                        Cancle
-                    </button>
-                </div>
-
             </form>
-        </div>
-        </form>
     </main>
 </body>
+
 
 </html>
