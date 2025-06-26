@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Power BI Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Power BI Dashboard</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="flex h-screen overflow-hidden">
 
 	<aside
@@ -79,7 +81,7 @@
 
 
 				<a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-					href="#">
+					href="Customer.html">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 						stroke="currentColor" class="size-6">
 						<path stroke-linecap="round" stroke-linejoin="round"
@@ -91,7 +93,7 @@
 				</a>
 
 				<a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-					href="#">
+					href="Report.html">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 						stroke="currentColor" class="size-6">
 						<path stroke-linecap="round" stroke-linejoin="round"
@@ -127,26 +129,27 @@
 				<a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
 					href="#">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-5 h-5 ">
-							<path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
-							<rect width="32" height="64" x="256" y="232"></rect>
+						<path
+							d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z">
+						</path>
+						<rect width="32" height="64" x="256" y="232"></rect>
 					</svg>
 					<span class="mx-2 text-sm font-medium">Logout</span>
 				</a>
 
 			</nav>
 		</div>
-    </aside>
+	</aside>
 
-<!-- Content Area -->
-  <div class="flex-1 flex flex-col overflow-hidden">
-   <!-- Power BI Embed -->
-    <main class="flex-1 overflow-hidden">
-      <iframe 
-        class="w-full h-full"
-        src="https://app.powerbi.com/view?r=eyJrIjoiYmQ4OGI0NmEtNmFlYy00Y2EwLWEwYjAtMjY0ZmY1MjM1Yzk2IiwidCI6IjhiMjdiNjQ2LTQ0YTAtNDZlYi05MDNiLWNhNjAyNmFkYjdmYSIsImMiOjEwfQ%3D%3D"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </main>
+	<!-- Content Area -->
+	<div class="flex-1 flex flex-col overflow-hidden">
+		<!-- Power BI Embed -->
+		<main class="flex-1 overflow-hidden">
+			<iframe class="w-full h-full"
+				src="https://app.powerbi.com/view?r=eyJrIjoiYmQ4OGI0NmEtNmFlYy00Y2EwLWEwYjAtMjY0ZmY1MjM1Yzk2IiwidCI6IjhiMjdiNjQ2LTQ0YTAtNDZlYi05MDNiLWNhNjAyNmFkYjdmYSIsImMiOjEwfQ%3D%3D"
+				frameborder="0" allowfullscreen>
+			</iframe>
+		</main>
 </body>
+
 </html>
