@@ -1,0 +1,6 @@
+Flask
+Flask-MySQLdb
+Flask-Cors
+PyMySQL
+Flask-Bcrypt
+PyJWT
