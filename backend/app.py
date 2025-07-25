@@ -3,7 +3,7 @@ from flask_mysqldb import MySQL
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from config import Config
-from models import create_user, get_user_by_email
+from models import create_user, get_user_by_emp_code
 from utils import create_token
 from werkzeug.security import check_password_hash
 
@@ -16,38 +16,42 @@ mysql = MySQL(app)
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
-    email = data.get('email')
-    password = data.get('password')
-    role = data.get('role', 'User')
+    employee_code = data.get('employee_code')
 
-    if get_user_by_email(mysql, email):
-        return jsonify({'message': 'Email already exists'}), 400
+    if get_user_by_emp_code(mysql, employee_code):
+        return jsonify({'message': 'รหัสพนักงานนี้มีอยู่แล้ว'}), 400
 
-    create_user(mysql, email, password, role)
-    return jsonify({'message': 'User created successfully'}), 201
+    create_user(mysql, data)
+    return jsonify({'message': 'ลงทะเบียนสำเร็จ'}), 201
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
-    email = data.get('email')
+    employee_code = data.get('employee_code')
     password = data.get('password')
 
-    user = get_user_by_email(mysql, email)
+    user = get_user_by_emp_code(mysql, employee_code)
     if user and check_password_hash(user['password'], password):
         token = create_token(user['id'], user['role'])
-        return jsonify({'token': token}), 200
+        return jsonify({
+            'token': token,
+            'name': f"{user['first_name']} {user['last_name']}",
+            'department': user['department'],
+            'position': user['position'],
+            'role': user['role']
+        }), 200
     else:
-        return jsonify({'message': 'Invalid credentials'}), 401
+        return jsonify({'message': 'รหัสพนักงานหรือรหัสผ่านไม่ถูกต้อง'}), 401
 
 @app.route('/forgot-password', methods=['POST'])
 def forgot_password():
-    # Mock example - add email logic if needed
+    # ตัวอย่าง mock ยังใช้ email ค้นหา
     data = request.json
-    email = data.get('email')
-    user = get_user_by_email(mysql, email)
+    employee_code = data.get('employee_code')
+    user = get_user_by_emp_code(mysql, employee_code)
     if user:
-        return jsonify({'message': 'Reset link sent to email'}), 200
-    return jsonify({'message': 'Email not found'}), 404
+        return jsonify({'message': 'ระบบจะส่งลิงก์ไปยังอีเมลของคุณ (mock)'}), 200
+    return jsonify({'message': 'ไม่พบรหัสพนักงานในระบบ'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
